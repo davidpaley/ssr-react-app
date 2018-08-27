@@ -3,7 +3,7 @@ import rederer from './helpers/rederers';
 
 const app = express();
 app.use(express.static('public'));
-app.get('/', (req, res) => {
+app.get('*', (req, res) => {
   res.send(rederer(req));
 });
 
