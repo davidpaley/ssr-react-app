@@ -12,7 +12,7 @@ import { renderRoutes } from 'react-router-config';
 
 const store = createStore(
     reducers,
-    {},
+    window.INITIAL_STATE,
     applyMiddleware(thunk)
   );
 

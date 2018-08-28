@@ -262,6 +262,10 @@ var _react2 = _interopRequireDefault(_react);
 
 var _server = __webpack_require__(13);
 
+var _serializeJavascript = __webpack_require__(21);
+
+var _serializeJavascript2 = _interopRequireDefault(_serializeJavascript);
+
 var _reactRouterDom = __webpack_require__(14);
 
 var _Routes = __webpack_require__(2);
@@ -288,7 +292,7 @@ exports.default = function (req, store) {
       )
     )
   ));
-  return '\n    <html>\n      <head></head>\n      <body>\n        <div id="root">' + content + '</div>\n        <script src="bundle.js"></script>\n      </body>\n    </html>\n  ';
+  return '\n    <html>\n      <head></head>\n      <body>\n        <div id="root">' + content + '</div>\n        <script>\n          window.INITIAL_STATE = ' + (0, _serializeJavascript2.default)(store.getState()) + '\n        </script>\n        <script src="bundle.js"></script>\n      </body>\n    </html>\n  ';
 };
 
 /***/ }),
@@ -510,6 +514,12 @@ exports.default = {
   component: (0, _reactRedux.connect)(mapStateToProps, { fetchUsers: _actions.fetchUsers })(UsersList),
   loadData: loadData
 };
+
+/***/ }),
+/* 21 */
+/***/ (function(module, exports) {
+
+module.exports = require("serialize-javascript");
 
 /***/ })
 /******/ ]);
